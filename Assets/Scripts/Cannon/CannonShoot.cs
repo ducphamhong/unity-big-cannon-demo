@@ -17,7 +17,7 @@ public class CannonShoot : StateMachineBehaviour
             Rigidbody rb = cannon.Ball.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.AddForce(shootVec * cannon.MaxForce);
+                rb.AddForce(shootVec * cannon.MaxForce * cannon.ShootForceRatio);
             }
         }
 

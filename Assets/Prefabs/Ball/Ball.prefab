@@ -11,13 +11,15 @@ GameObject:
   - component: {fileID: 7922450633998182689}
   - component: {fileID: 1531275019}
   - component: {fileID: 4065472664556610768}
+  - component: {fileID: 1531275021}
+  - component: {fileID: 1980366639756036343}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7922450633998182689
 Transform:
   m_ObjectHideFlags: 0
@@ -62,6 +64,34 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.12
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1531275021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7922450633998182702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db249ef617dc97c49b18566d87f698fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ground: {fileID: 0}
+  TreePrefab: {fileID: 5899492353296813772, guid: ac3fdcb2517ba6541931efda42c3f3ba,
+    type: 3}
+  Cannon: {fileID: 0}
+--- !u!114 &1980366639756036343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7922450633998182702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854fbe68b30164d48a3dabee54dd7d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7922450632672326157
 PrefabInstance:
   m_ObjectHideFlags: 0
