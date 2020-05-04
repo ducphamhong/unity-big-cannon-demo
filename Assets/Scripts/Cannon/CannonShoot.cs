@@ -5,18 +5,30 @@ using UnityEngine;
 public class CannonShoot : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        // todo shoot
+        Cannon cannon = animator.gameObject.GetComponent<Cannon>();
+        if (cannon != null && cannon.Ball != null && cannon.BulletPosition != null)
+        {
+            cannon.Ball.SetActive(true);
+            cannon.Ball.transform.position = cannon.BulletPosition.position;
+
+            Vector3 shootVec = cannon.BulletPosition.forward;
+            Rigidbody rb = cannon.Ball.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(shootVec * cannon.MaxForce);
+            }
+        }
+
+        // change to end state
+        animator.SetBool("END", true);
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // todo shoot
-
-        // change to end state
-        animator.SetBool("END", true);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

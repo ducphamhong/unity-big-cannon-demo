@@ -5,8 +5,16 @@ using UnityEngine;
 public class Cannon : MonoBehaviour
 {
     public Transform CannonRotate;
+    public Transform CannonScale;
+    public Transform BulletPosition;
+
+    public float MinForce = 100.0f;
+    public float MaxForce = 700.0f;
+
     public float RotateSpeed = 20.0f;
     public float ShootAngle = 0.0f;
+
+    public GameObject Ball;
 
     // Start is called before the first frame update
     void Start()
