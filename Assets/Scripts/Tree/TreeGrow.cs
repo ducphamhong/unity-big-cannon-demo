@@ -2,39 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonShoot : StateMachineBehaviour
+public class TreeGrow : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        Cannon cannon = animator.gameObject.GetComponent<Cannon>();
-        if (cannon != null && cannon.Ball != null && cannon.BulletPosition != null)
-        {
-            cannon.Ball.SetActive(true);
-            cannon.Ball.transform.position = cannon.BulletPosition.position;
-
-            Vector3 shootVec = cannon.BulletPosition.forward;
-            Rigidbody rb = cannon.Ball.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.AddForce(shootVec * cannon.MaxForce);
-            }
-        }
-
-        // change to end state
-        animator.SetBool("END", true);
-    }
+    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (stateInfo.normalizedTime == 1.0f)
+        {
+            animator.SetBool("GROW", false);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        animator.SetBool("SHOOT", false);
-    }
+    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
