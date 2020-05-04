@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3466765031537874326}
+  - component: {fileID: 8117324843891174194}
   m_Layer: 0
   m_Name: Tree-Cannon
   m_TagString: Untagged
@@ -32,6 +33,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8117324843891174194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625216003589292853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14001bc6328f6db45aff41907dad1251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CannonRotate: {fileID: 731551526513183485}
+  RotateSpeed: 20
+  ShootAngle: 0
 --- !u!1 &7030173379108750236
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +72,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7030173379108750236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.24, z: 0}
+  m_LocalPosition: {x: 0, y: 3.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 731551526207267978}
@@ -143,6 +159,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1471582763843840049}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &731551526513183485 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2182806038070780620, guid: 763c303cc94bbb8449018096ae0e9832,
+    type: 3}
+  m_PrefabInstance: {fileID: 1471582763843840049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6627551756546880230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,7 +185,7 @@ PrefabInstance:
     - target: {fileID: 5899492353296813773, guid: ac3fdcb2517ba6541931efda42c3f3ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 5899492353296813773, guid: ac3fdcb2517ba6541931efda42c3f3ba,
         type: 3}
