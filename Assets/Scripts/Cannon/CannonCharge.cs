@@ -34,6 +34,10 @@ public class CannonCharge : StateMachineBehaviour
                 cannon.GUISlider.value = cannon.ShootForceRatio;
             }
         }
+
+        float scale = 1.0f + (cannon.MaxChargeScale - 1.0f) * cannon.ShootForceRatio;
+        cannon.SetScale(scale, true);
+        cannon.SetShake(cannon.ShootForceRatio * cannon.MaxShakeAmount, cannon.ShootForceRatio * cannon.MaxShakeSpeed);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -45,6 +49,8 @@ public class CannonCharge : StateMachineBehaviour
         {
             cannon.GUISlider.gameObject.SetActive(false);
         }
+        
+        cannon.SetShake(0.0f, 0.0f);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -2,8 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GSBegin : MonoBehaviour
+public class GSBase : MonoBehaviour
 {
+    public enum EState
+    {
+        Null,
+        Begin,
+        Gameplay
+    }
+
+    public EState StateName = EState.Null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +23,5 @@ public class GSBegin : MonoBehaviour
     void Update()
     {
 
-    }
-
-    public void OnPlayButton()
-    {
-        GameState.Instance.StartGame();
     }
 }

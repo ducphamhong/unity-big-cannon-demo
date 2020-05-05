@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flying : MonoBehaviour
+public class GSBegin : GSBase
 {
-    public Transform OriginalScorePosition;
-
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float dis = (transform.position - OriginalScorePosition.position).magnitude;
-        GameState.Instance.FlyScore = dis;
+
+    }
+
+    public void OnPlayButton()
+    {
+        GUI.Instance.ChangeState(EState.Gameplay);
+        GameState.Instance.StartGame();
     }
 }

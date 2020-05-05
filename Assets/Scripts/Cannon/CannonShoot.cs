@@ -10,8 +10,13 @@ public class CannonShoot : StateMachineBehaviour
         Cannon cannon = animator.gameObject.GetComponent<Cannon>();
         if (cannon != null && cannon.Ball != null && cannon.BulletPosition != null)
         {
+            float s = cannon.GetCannonScale();
+
+            cannon.SetScale(1.0f, false);
+
             cannon.Ball.SetActive(true);
             cannon.Ball.transform.position = cannon.BulletPosition.position;
+            cannon.Ball.transform.localScale = new Vector3(s, s, s);
 
             Vector3 shootVec = cannon.BulletPosition.forward;
             Rigidbody rb = cannon.Ball.GetComponent<Rigidbody>();
@@ -23,6 +28,9 @@ public class CannonShoot : StateMachineBehaviour
 
         // change to end state
         animator.SetBool("END", true);
+
+        // change POV camera
+        GameState.Instance.SetActivePOVCamera();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

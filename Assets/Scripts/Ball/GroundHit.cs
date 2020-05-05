@@ -48,6 +48,11 @@ public class GroundHit : MonoBehaviour
             {
                 Cannon.ResetState();
             }
+
+            // recalc score
+            GameState gs = GameState.Instance;
+            gs.DistanceScored = gs.DistanceScored + gs.FlyScore;
+            gs.FlyScore = 0.0f;
         }
     }
 }

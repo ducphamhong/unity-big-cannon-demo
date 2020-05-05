@@ -49,10 +49,16 @@ MonoBehaviour:
   CannonRotate: {fileID: 731551526513183485}
   CannonScale: {fileID: 613373078930203699}
   BulletPosition: {fileID: 4058422273667060611}
-  MinForce: 100
+  GUISlider: {fileID: 0}
+  MinForce: 300
   MaxForce: 700
   RotateSpeed: 20
   ShootAngle: 0
+  ShootForceRatio: 0
+  ShootForceSpeed: 0.2
+  MaxChargeScale: 1.5
+  MaxShakeAmount: 0.015
+  MaxShakeSpeed: 40
   Ball: {fileID: 0}
 --- !u!95 &1042339281
 Animator:
@@ -116,6 +122,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cannon
       objectReference: {fileID: 0}
+    - target: {fileID: 3188114453128985522, guid: 763c303cc94bbb8449018096ae0e9832,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188114453128985522, guid: 763c303cc94bbb8449018096ae0e9832,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188114453128985522, guid: 763c303cc94bbb8449018096ae0e9832,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.068
+      objectReference: {fileID: 0}
     - target: {fileID: 2182806037487504571, guid: 763c303cc94bbb8449018096ae0e9832,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -170,21 +191,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3188114453128985522, guid: 763c303cc94bbb8449018096ae0e9832,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.006
-      objectReference: {fileID: 0}
-    - target: {fileID: 3188114453128985522, guid: 763c303cc94bbb8449018096ae0e9832,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.003
-      objectReference: {fileID: 0}
-    - target: {fileID: 3188114453128985522, guid: 763c303cc94bbb8449018096ae0e9832,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.068
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 763c303cc94bbb8449018096ae0e9832, type: 3}

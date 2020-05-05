@@ -168,7 +168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2519070401272517605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105a700a368affb468d8a37b377c53f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StateName: 1
 --- !u!1 &2017707131351149892
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb40ece5df09f349b98571da3f30130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gamestates:
+  - {fileID: 4908194892519830213}
+  - {fileID: 741352442}
 --- !u!223 &2600022836173471326
 Canvas:
   m_ObjectHideFlags: 0
@@ -476,85 +480,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!1 &2947634837489041158
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2744050216026791252}
-  - component: {fileID: 7804278188352880297}
-  - component: {fileID: 6419717904350538720}
-  m_Layer: 0
-  m_Name: TutorialText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2744050216026791252
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2947634837489041158}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1316651374446469286}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 327}
-  m_SizeDelta: {x: 800, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7804278188352880297
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2947634837489041158}
-  m_CullTransparentMesh: 0
---- !u!114 &6419717904350538720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2947634837489041158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 3
-    m_MaxSize: 43
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Press UP/DOWN to ROTATE Cannon
-
-    Press SPACE to shoot a ball'
 --- !u!1 &4041664586471381856
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,12 +750,12 @@ GameObject:
   - component: {fileID: 1316651374446469286}
   - component: {fileID: 741352442}
   m_Layer: 0
-  m_Name: HUD
+  m_Name: Gameplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1316651374446469286
 RectTransform:
   m_ObjectHideFlags: 0
@@ -844,7 +769,6 @@ RectTransform:
   m_Children:
   - {fileID: 5445165469102170264}
   - {fileID: 9191114909558309063}
-  - {fileID: 2744050216026791252}
   m_Father: {fileID: 2600022836173471320}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -865,8 +789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d43c9b2f093f9499a4040e86a4d74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tutorial: {fileID: 2947634837489041158}
-  TutorialTime: 5
+  StateName: 2
   Score: {fileID: 6295012513601310932}
 --- !u!1 &8192538559971888035
 GameObject:
