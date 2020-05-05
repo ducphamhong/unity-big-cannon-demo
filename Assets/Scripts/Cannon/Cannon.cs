@@ -26,6 +26,7 @@ public class Cannon : MonoBehaviour
     public float MaxShakeSpeed = 40.0f;
 
     public GameObject Ball;
+    public ParticleSystem ExplosionParticle;
 
     private float cannonScale = 1.0f;
     private float cannonTargetScale = 1.0f;
@@ -66,6 +67,15 @@ public class Cannon : MonoBehaviour
 
         if (CannonScale != null)
             CannonScale.localScale = new Vector3(cannonScale, cannonScale, cannonScale);
+    }
+
+    public void PlayExplosiveParticle()
+    {
+        if (ExplosionParticle != null)
+        {
+            ExplosionParticle.gameObject.SetActive(true);
+            ExplosionParticle.Play(true);
+        }
     }
 
     public float GetCannonScale()

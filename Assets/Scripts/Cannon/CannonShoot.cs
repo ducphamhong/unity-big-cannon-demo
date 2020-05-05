@@ -24,6 +24,8 @@ public class CannonShoot : StateMachineBehaviour
             {
                 rb.AddForce(shootVec * cannon.MaxForce * cannon.ShootForceRatio);
             }
+
+            cannon.PlayExplosiveParticle();
         }
 
         // change to end state
