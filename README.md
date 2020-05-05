@@ -1,8 +1,9 @@
 # Big Cannon Mini Game Demo
 This is trash project to apply a job as unity developer.
 
-Use key **UP** or **DOWN** to adjust Cannon Shoot Angle
-Hold **SPACE BAR** to charge shoot a Ball
+Use key **UP** or **DOWN** to adjust Cannon Shoot Angle.
+
+Hold **SPACE BAR** to charge and shoot a Ball
 
 Design for portrail size (480x800, 1080x1920,...)
 
