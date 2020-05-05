@@ -12,8 +12,13 @@ public class GameState : MonoBehaviour
     public GameObject MainCamera;
     public GameObject POVCamera;
 
+    public GameObject TreeSpawner;
+    public GameObject Ball;
+
     public float DistanceScored = 0.0f;
     public float FlyScore = 0.0f;
+
+    private bool isGameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +34,38 @@ public class GameState : MonoBehaviour
         if (Cannon != null)
         {
             Cannon.GetComponent<Animator>().SetBool("AIM", true);
+            Cannon.GetComponent<Animator>().SetBool("GAME_OVER", false);
         }
 
         DistanceScored = 0.0f;
         FlyScore = 0.0f;
+
+        if (TreeSpawner != null)
+        {
+            foreach (Transform child in TreeSpawner.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
+
+        if (Ball != null)
+        {
+            Ball.SetActive(false);
+        }
+
+        SetActiveMainCamera();
+
+        isGameOver = false;
+    }
+
+    public void GameOver()
+    {
+        isGameOver = true;
+    }
+
+    public bool IsGameOver()
+    {
+        return isGameOver;
     }
 
     public void SetActiveMainCamera()

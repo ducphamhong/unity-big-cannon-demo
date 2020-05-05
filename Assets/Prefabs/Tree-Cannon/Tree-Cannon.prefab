@@ -55,7 +55,7 @@ MonoBehaviour:
   RotateSpeed: 20
   ShootAngle: 0
   ShootForceRatio: 0
-  ShootForceSpeed: 0.2
+  ShootForceSpeed: 0.4
   MaxChargeScale: 1.5
   MaxShakeAmount: 0.015
   MaxShakeSpeed: 40

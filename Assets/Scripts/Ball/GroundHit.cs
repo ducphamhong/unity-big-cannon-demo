@@ -7,6 +7,7 @@ using UnityEngine;
 public class GroundHit : MonoBehaviour
 {
     public Collider Ground;
+    public GameObject TreeSpawner;
     public GameObject TreePrefab;
     public Cannon Cannon;
 
@@ -31,9 +32,10 @@ public class GroundHit : MonoBehaviour
             rb.velocity = Vector3.zero;
 
             gameObject.SetActive(false);
-            if (TreePrefab != null)
+            if (TreePrefab != null && TreeSpawner != null)
             {
                 GameObject newTree = GameObject.Instantiate(TreePrefab);
+                newTree.transform.parent = TreeSpawner.transform;
                 newTree.transform.position = gameObject.transform.position;
 
                 Animator treeAnimator = newTree.GetComponent<Animator>();

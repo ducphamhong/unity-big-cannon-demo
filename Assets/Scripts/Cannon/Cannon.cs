@@ -11,6 +11,7 @@ public class Cannon : MonoBehaviour
     public Transform BulletPosition;
 
     public Slider GUISlider;
+    public bool ShowGUISlider = false;
 
     public float MinForce = 300.0f;
     public float MaxForce = 700.0f;
@@ -19,7 +20,7 @@ public class Cannon : MonoBehaviour
     public float ShootAngle = 0.0f;
 
     public float ShootForceRatio = 0.0f;
-    public float ShootForceSpeed = 0.1f;
+    public float ShootForceSpeed = 0.4f;
 
     public float MaxChargeScale = 1.5f;
     public float MaxShakeAmount = 0.015f;

@@ -8,7 +8,8 @@ public class GSBase : MonoBehaviour
     {
         Null,
         Begin,
-        Gameplay
+        Gameplay,
+        GameOver
     }
 
     public EState StateName = EState.Null;

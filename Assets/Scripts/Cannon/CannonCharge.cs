@@ -10,7 +10,9 @@ public class CannonCharge : StateMachineBehaviour
         Cannon cannon = animator.gameObject.GetComponent<Cannon>();
         if (cannon != null && cannon.GUISlider != null)
         {
-            cannon.GUISlider.gameObject.SetActive(true);
+            if (cannon.ShowGUISlider == true)
+                cannon.GUISlider.gameObject.SetActive(true);
+
             cannon.GUISlider.value = 0.0f;
             cannon.ShootForceRatio = 0.0f;
         }
@@ -19,7 +21,9 @@ public class CannonCharge : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Input.GetKeyUp(KeyCode.Space) == true)
+        GameState gs = GameState.Instance;
+
+        if (Input.GetKeyUp(KeyCode.Space) == true && gs.IsGameOver() == false)
         {
             animator.SetBool("SHOOT", true);
         }
@@ -33,11 +37,20 @@ public class CannonCharge : StateMachineBehaviour
             {
                 cannon.GUISlider.value = cannon.ShootForceRatio;
             }
-        }
 
-        float scale = 1.0f + (cannon.MaxChargeScale - 1.0f) * cannon.ShootForceRatio;
-        cannon.SetScale(scale, true);
-        cannon.SetShake(cannon.ShootForceRatio * cannon.MaxShakeAmount, cannon.ShootForceRatio * cannon.MaxShakeSpeed);
+            float scale = 1.0f + (cannon.MaxChargeScale - 1.0f) * cannon.ShootForceRatio;
+            cannon.SetScale(scale, true);
+            cannon.SetShake(cannon.ShootForceRatio * cannon.MaxShakeAmount, cannon.ShootForceRatio * cannon.MaxShakeSpeed);
+
+            if (cannon.ShootForceRatio >= 1.0f)
+            {
+                cannon.PlayExplosiveParticle();
+                cannon.SetScale(1.0f, false);
+
+                animator.SetBool("GAME_OVER", true);
+                gs.GameOver();
+            }
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -47,10 +60,11 @@ public class CannonCharge : StateMachineBehaviour
         Cannon cannon = animator.gameObject.GetComponent<Cannon>();
         if (cannon != null)
         {
-            cannon.GUISlider.gameObject.SetActive(false);
+            if (cannon.ShowGUISlider == true)
+                cannon.GUISlider.gameObject.SetActive(false);
+
+            cannon.SetShake(0.0f, 0.0f);
         }
-        
-        cannon.SetShake(0.0f, 0.0f);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

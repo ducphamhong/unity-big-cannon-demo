@@ -29,5 +29,10 @@ public class GSGamePlay : GSBase
             Score.text = string.Format("{0:0.00}", currentScored);
             scored = gs.DistanceScored;
         }
+
+        if (gs.IsGameOver() == true)
+        {
+            GUI.Instance.ChangeState(EState.GameOver);
+        }
     }
 }
