@@ -45,8 +45,8 @@ Rigidbody:
   m_GameObject: {fileID: 7922450633998182702}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0.2
-  m_AngularDrag: 0.2
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ground: {fileID: 0}
+  TreeSpawner: {fileID: 0}
   TreePrefab: {fileID: 5899492353296813772, guid: ac3fdcb2517ba6541931efda42c3f3ba,
     type: 3}
   Cannon: {fileID: 0}
@@ -149,15 +150,6 @@ TrailRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 0.025581539
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4

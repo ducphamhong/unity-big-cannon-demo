@@ -22,7 +22,7 @@ public class CannonShoot : StateMachineBehaviour
             Rigidbody rb = cannon.Ball.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.AddForce(shootVec * cannon.MaxForce * cannon.ShootForceRatio);
+                rb.AddForce(shootVec * (cannon.MinForce + (cannon.MaxForce - cannon.MinForce) * cannon.ShootForceRatio), ForceMode.VelocityChange);
             }
 
             cannon.PlayExplosiveParticle();

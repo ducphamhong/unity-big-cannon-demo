@@ -21,16 +21,19 @@ public class Flying : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dis = (transform.position - OriginalScorePosition.position).magnitude;
-        GameState.Instance.FlyScore = dis;
-
-        flyTime += Time.deltaTime;
-
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb.velocity.magnitude == 0.0f && flyTime > 3.0f)
+        if (OriginalScorePosition != null)
         {
-            // this ball is stuck
-            GameState.Instance.GameOver();
+            float dis = (transform.position - OriginalScorePosition.position).magnitude;
+            GameState.Instance.FlyScore = dis;
+
+            flyTime += Time.deltaTime;
+
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb.velocity.magnitude == 0.0f && flyTime > 3.0f)
+            {
+                // this ball is stuck
+                GameState.Instance.GameOver();
+            }
         }
     }
 }

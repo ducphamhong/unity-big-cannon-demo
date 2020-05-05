@@ -13,8 +13,8 @@ public class Cannon : MonoBehaviour
     public Slider GUISlider;
     public bool ShowGUISlider = false;
 
-    public float MinForce = 300.0f;
-    public float MaxForce = 700.0f;
+    public float MinForce = 10.0f;
+    public float MaxForce = 50.0f;
 
     public float RotateSpeed = 20.0f;
     public float ShootAngle = 0.0f;
@@ -41,6 +41,7 @@ public class Cannon : MonoBehaviour
     {
         Animator animator = GetComponent<Animator>();
         animator.SetBool("AIM", true);
+        animator.SetBool("GAME_OVER", false);
 
         ShootForceRatio = 0.0f;
         if (GUISlider != null)
@@ -48,10 +49,9 @@ public class Cannon : MonoBehaviour
             GUISlider.gameObject.SetActive(false);
         }
 
-        // reset scale
-        SetScale(1.0f, false);
+        ShootForceRatio = 0.0f;
 
-        GameState.Instance.SetActiveMainCamera();
+        SetScale(1.0f, false);
     }
 
     public void SetScale(float scale, bool force)

@@ -197,6 +197,34 @@ PrefabInstance:
       propertyPath: Ball
       value: 
       objectReference: {fileID: 1531275018}
+    - target: {fileID: 77468269, guid: 2a99c1f7e6f4cc644a957b6d9a65f9b1, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 77468269, guid: 2a99c1f7e6f4cc644a957b6d9a65f9b1, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 77468269, guid: 2a99c1f7e6f4cc644a957b6d9a65f9b1, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.22222137
+      objectReference: {fileID: 0}
+    - target: {fileID: 77468269, guid: 2a99c1f7e6f4cc644a957b6d9a65f9b1, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 77468269, guid: 2a99c1f7e6f4cc644a957b6d9a65f9b1, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.9444444
+      objectReference: {fileID: 0}
+    - target: {fileID: 77468269, guid: 2a99c1f7e6f4cc644a957b6d9a65f9b1, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.a
+      value: 0.69411767
+      objectReference: {fileID: 0}
+    - target: {fileID: 77468268, guid: 2a99c1f7e6f4cc644a957b6d9a65f9b1, type: 3}
+      propertyPath: Ball
+      value: 
+      objectReference: {fileID: 1531275018}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a99c1f7e6f4cc644a957b6d9a65f9b1, type: 3}
 --- !u!114 &595269827 stripped
@@ -439,11 +467,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 7922450633998182702, guid: 4050194885626824b8e9e04a4c7eec08,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7922450633998182689, guid: 4050194885626824b8e9e04a4c7eec08,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -504,18 +527,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 910861635}
     - target: {fileID: 1531275021, guid: 4050194885626824b8e9e04a4c7eec08, type: 3}
-      propertyPath: Cannon
-      value: 
-      objectReference: {fileID: 595269827}
-    - target: {fileID: 1531275021, guid: 4050194885626824b8e9e04a4c7eec08, type: 3}
       propertyPath: TreeSpawner
       value: 
       objectReference: {fileID: 867607547}
+    - target: {fileID: 1531275021, guid: 4050194885626824b8e9e04a4c7eec08, type: 3}
+      propertyPath: Cannon
+      value: 
+      objectReference: {fileID: 595269827}
     - target: {fileID: 1980366639756036343, guid: 4050194885626824b8e9e04a4c7eec08,
         type: 3}
       propertyPath: OriginalScorePosition
       value: 
       objectReference: {fileID: 788960097}
+    - target: {fileID: 4282454246155480177, guid: 4050194885626824b8e9e04a4c7eec08,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.atime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282454246155480177, guid: 4050194885626824b8e9e04a4c7eec08,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282454246155480177, guid: 4050194885626824b8e9e04a4c7eec08,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.m_NumAlphaKeys
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4050194885626824b8e9e04a4c7eec08, type: 3}
 --- !u!1 &1531275018 stripped
@@ -811,6 +849,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 605761851, guid: a22cd6c0d05c94544bb1656537d27ac4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2890778716734389896, guid: a22cd6c0d05c94544bb1656537d27ac4,
         type: 3}

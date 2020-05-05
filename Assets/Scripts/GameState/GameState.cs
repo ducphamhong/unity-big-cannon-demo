@@ -33,8 +33,7 @@ public class GameState : MonoBehaviour
     {
         if (Cannon != null)
         {
-            Cannon.GetComponent<Animator>().SetBool("AIM", true);
-            Cannon.GetComponent<Animator>().SetBool("GAME_OVER", false);
+            Cannon.ResetState();
         }
 
         DistanceScored = 0.0f;
