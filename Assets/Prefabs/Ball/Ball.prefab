@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7922450633998182689}
   - component: {fileID: 1531275019}
   - component: {fileID: 4065472664556610768}
-  - component: {fileID: 1531275021}
   - component: {fileID: 1980366639756036343}
   - component: {fileID: 4282454246155480177}
+  - component: {fileID: 8563627320928164056}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -51,7 +51,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!135 &4065472664556610768
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -65,23 +65,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.12
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1531275021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7922450633998182702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db249ef617dc97c49b18566d87f698fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ground: {fileID: 0}
-  TreeSpawner: {fileID: 0}
-  TreePrefab: {fileID: 5899492353296813772, guid: ac3fdcb2517ba6541931efda42c3f3ba,
-    type: 3}
-  Cannon: {fileID: 0}
 --- !u!114 &1980366639756036343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +139,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 0.8117647}
-      key1: {r: 1, g: 1, b: 1, a: 0.46666667}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -172,7 +155,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 34888
+      atime1: 65535
       atime2: 65535
       atime3: 65535
       atime4: 0
@@ -181,7 +164,7 @@ TrailRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
+      m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
@@ -191,6 +174,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.06
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &8563627320928164056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7922450633998182702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db249ef617dc97c49b18566d87f698fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ground: {fileID: 0}
 --- !u!1001 &7922450632672326157
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -51,10 +51,11 @@ MonoBehaviour:
   CannonRotate: {fileID: 731551526513183485}
   CannonScale: {fileID: 613373078930203699}
   BulletPosition: {fileID: 4058422273667060611}
-  GUISlider: {fileID: 0}
-  ShowGUISlider: 0
+  Roof: {fileID: 2615447734372892807}
   MinForce: 10
   MaxForce: 50
+  MinRotate: 10
+  MaxRotate: 80
   RotateSpeed: 20
   ShootAngle: 0
   ShootForceRatio: 0
@@ -62,7 +63,8 @@ MonoBehaviour:
   MaxChargeScale: 1.5
   MaxShakeAmount: 0.015
   MaxShakeSpeed: 40
-  Ball: {fileID: 0}
+  BallSpawner: {fileID: 0}
+  TreeSpawner: {fileID: 0}
   ExplosionParticle: {fileID: 6012190340671366207}
 --- !u!95 &1042339281
 Animator:
@@ -132,7 +134,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.5138893
+        value: 0.22222137
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -144,7 +146,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 0.27450982}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -191,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7418ac3f8d77748b6d82053bd5e74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball: {fileID: 0}
+  Ball: {fileID: 7922450633998182702, guid: 4050194885626824b8e9e04a4c7eec08, type: 3}
 --- !u!1 &7030173379108750236
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +421,7 @@ PrefabInstance:
     - target: {fileID: 5899492353296813773, guid: ac3fdcb2517ba6541931efda42c3f3ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5899492353296813773, guid: ac3fdcb2517ba6541931efda42c3f3ba,
         type: 3}
@@ -476,6 +478,12 @@ PrefabInstance:
 --- !u!4 &731551525462998059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5899492353296813773, guid: ac3fdcb2517ba6541931efda42c3f3ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 6627551756546880230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2615447734372892807 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9201457594308997729, guid: ac3fdcb2517ba6541931efda42c3f3ba,
     type: 3}
   m_PrefabInstance: {fileID: 6627551756546880230}
   m_PrefabAsset: {fileID: 0}

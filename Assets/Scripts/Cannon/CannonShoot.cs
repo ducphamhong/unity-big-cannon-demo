@@ -8,31 +8,59 @@ public class CannonShoot : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Cannon cannon = animator.gameObject.GetComponent<Cannon>();
-        if (cannon != null && cannon.Ball != null && cannon.BulletPosition != null)
+        Projectile projectile = animator.gameObject.GetComponent<Projectile>();
+
+        if (cannon != null &&
+            cannon.BulletPosition != null &&
+            cannon.TreeSpawner != null &&
+            cannon.BallSpawner != null)
         {
             float s = cannon.GetCannonScale();
+            Vector3 startPosition = cannon.BulletPosition.position;
+            Vector3 shootVec = cannon.BulletPosition.forward;
 
             cannon.SetScale(1.0f, false);
 
-            cannon.Ball.SetActive(true);
-            cannon.Ball.transform.position = cannon.BulletPosition.position;
-            cannon.Ball.transform.localScale = new Vector3(s, s, s);
+            GameObject ball = cannon.BallSpawner.SpawnBall(startPosition);
 
-            Vector3 shootVec = cannon.BulletPosition.forward;
-            Rigidbody rb = cannon.Ball.GetComponent<Rigidbody>();
+            ball.SetActive(true);
+            ball.transform.localScale = new Vector3(s, s, s);
+
+            Flying fly = ball.GetComponent<Flying>();
+            if (fly != null)
+                fly.SetBaseScorePosition(startPosition);
+
+            Rigidbody rb = ball.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.AddForce(shootVec * (cannon.MinForce + (cannon.MaxForce - cannon.MinForce) * cannon.ShootForceRatio), ForceMode.VelocityChange);
+                Vector3 force = shootVec * (cannon.MinForce + (cannon.MaxForce - cannon.MinForce) * cannon.ShootForceRatio);
+                rb.AddForce(force, ForceMode.VelocityChange);
+
+                if (cannon.TreeSpawner != null)
+                {
+                    Vector3 treePosition = projectile.CalcTreePosition(startPosition, force, cannon.GetRoofPosition());
+                    cannon.TreeSpawner.SpawnTree(treePosition);
+
+                    if (fly != null)
+                    {
+                        Vector3 endPosition = treePosition + cannon.GetRoofPosition();
+                        SphereCollider c = ball.GetComponent<SphereCollider>();
+                        if (c != null)
+                            endPosition.y += c.radius;
+
+                        fly.SetEndPosition(endPosition);
+                    }
+                }
             }
 
-            cannon.PlayExplosiveParticle();
+            // change POV camera
+            GameState.Instance.SetActivePOVCamera(ball.transform);
         }
+
+        cannon.PlayExplosiveParticle();
 
         // change to end state
         animator.SetBool("END", true);
-
-        // change POV camera
-        GameState.Instance.SetActivePOVCamera();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

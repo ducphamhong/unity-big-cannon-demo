@@ -29,7 +29,10 @@ public class CannonAim : StateMachineBehaviour
                 animator.SetBool("CHARGE", true);
             }
 
-            cannon.ShootAngle = Mathf.Clamp(cannon.ShootAngle, -80.0f, 0.0f);
+            float min = Mathf.Min(cannon.MinRotate, cannon.MaxRotate);
+            float max = Mathf.Max(cannon.MinRotate, cannon.MaxRotate);
+
+            cannon.ShootAngle = Mathf.Clamp(cannon.ShootAngle, -max, -min);
             cannon.CannonRotate.localRotation = Quaternion.Euler(cannon.ShootAngle, 0.0f, 0.0f);
         }
     }

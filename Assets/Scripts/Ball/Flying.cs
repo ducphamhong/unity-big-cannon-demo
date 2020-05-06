@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Flying : MonoBehaviour
 {
-    public Transform OriginalScorePosition;
+    private Vector3 scorePosition;
+    private Vector3 endPosition;
 
     private float flyTime;
 
@@ -18,22 +19,28 @@ public class Flying : MonoBehaviour
         flyTime = 0.0f;
     }
 
+    public void SetBaseScorePosition(Vector3 p)
+    {
+        scorePosition = p;
+    }
+
+    public void SetEndPosition(Vector3 p)
+    {
+        endPosition = p;
+    }
+
+    public void End()
+    {
+        transform.position = endPosition;
+        enabled = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (OriginalScorePosition != null)
-        {
-            float dis = (transform.position - OriginalScorePosition.position).magnitude;
-            GameState.Instance.FlyScore = dis;
+        float dis = (transform.position - scorePosition).magnitude;
+        GameState.Instance.FlyScore = dis;
 
-            flyTime += Time.deltaTime;
-
-            Rigidbody rb = GetComponent<Rigidbody>();
-            if (rb.velocity.magnitude == 0.0f && flyTime > 3.0f)
-            {
-                // this ball is stuck
-                GameState.Instance.GameOver();
-            }
-        }
+        flyTime += Time.deltaTime;
     }
 }

@@ -12,8 +12,8 @@ public class GameState : MonoBehaviour
     public GameObject MainCamera;
     public GameObject POVCamera;
 
-    public GameObject TreeSpawner;
-    public GameObject Ball;
+    public TreeSpawner TreeSpawner;
+    public BallSpawner BallSpawner;
 
     public float DistanceScored = 0.0f;
     public float FlyScore = 0.0f;
@@ -27,6 +27,16 @@ public class GameState : MonoBehaviour
         Instance = this;
 
         Application.targetFrameRate = 60;
+    }
+
+    public void NewTurn()
+    {
+        if (Cannon != null)
+        {
+            Cannon.ResetState();
+        }
+
+        SetActiveMainCamera();
     }
 
     public void StartGame()
@@ -47,9 +57,12 @@ public class GameState : MonoBehaviour
             }
         }
 
-        if (Ball != null)
+        if (BallSpawner != null)
         {
-            Ball.SetActive(false);
+            foreach (Transform child in BallSpawner.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
         }
 
         SetActiveMainCamera();
@@ -76,13 +89,18 @@ public class GameState : MonoBehaviour
             POVCamera.gameObject.SetActive(false);
     }
 
-    public void SetActivePOVCamera()
+    public void SetActivePOVCamera(Transform transform)
     {
         if (MainCamera != null)
             MainCamera.gameObject.SetActive(false);
 
         if (POVCamera != null)
+        {
             POVCamera.gameObject.SetActive(true);
+            FollowObject follow = POVCamera.GetComponent<FollowObject>();
+            if (follow != null)
+                follow.SetFollow(transform);
+        }
     }
 
     // Update is called once per frame

@@ -8,14 +8,8 @@ public class CannonCharge : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Cannon cannon = animator.gameObject.GetComponent<Cannon>();
-        if (cannon != null && cannon.GUISlider != null)
-        {
-            if (cannon.ShowGUISlider == true)
-                cannon.GUISlider.gameObject.SetActive(true);
-
-            cannon.GUISlider.value = 0.0f;
+        if (cannon != null)
             cannon.ShootForceRatio = 0.0f;
-        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -32,11 +26,6 @@ public class CannonCharge : StateMachineBehaviour
         if (cannon != null)
         {
             cannon.ShootForceRatio = cannon.ShootForceRatio + Time.deltaTime * cannon.ShootForceSpeed;
-
-            if (cannon.GUISlider != null)
-            {
-                cannon.GUISlider.value = cannon.ShootForceRatio;
-            }
 
             float scale = 1.0f + (cannon.MaxChargeScale - 1.0f) * cannon.ShootForceRatio;
             cannon.SetScale(scale, true);
@@ -59,12 +48,7 @@ public class CannonCharge : StateMachineBehaviour
         animator.SetBool("CHARGE", false);
         Cannon cannon = animator.gameObject.GetComponent<Cannon>();
         if (cannon != null)
-        {
-            if (cannon.ShowGUISlider == true)
-                cannon.GUISlider.gameObject.SetActive(false);
-
             cannon.SetShake(0.0f, 0.0f);
-        }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
