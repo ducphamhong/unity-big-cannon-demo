@@ -1,5 +1,5 @@
 # Big Cannon Mini Game Demo
-This is trash project to apply a job as unity developer.
+This is dummy project to apply a job as unity developer.
 
 Use key **UP** or **DOWN** to adjust Cannon Shoot Angle.
 
